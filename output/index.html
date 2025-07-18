@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cifrado César - Juego de Descifrado</title>
+    <title>Kokoa - Rsj</title>
     <style>
       :root {
         --terminal-bg: #1e1e1e;
@@ -373,11 +373,8 @@
   <body>
     <div class="container">
       <header>
-        <h1>CIFRADO CÉSAR</h1>
-        <p class="subtitle">
-          En esta experiencia, deberás descifrar un mensaje secreto usando tu
-          cerebro e imaginación
-        </p>
+        <h1>Ready Set Join</h1>
+        <p class="subtitle">Buena suerte, la necesitarás</p>
       </header>
 
       <div class="terminal-container">
@@ -387,7 +384,7 @@
             <div class="terminal-btn btn-minimize"></div>
             <div class="terminal-btn btn-maximize"></div>
           </div>
-          <div class="terminal-title">Kokoa@cesar-cipher:~/juego</div>
+          <div class="terminal-title">Kokoa@cifrado-cesar:~/juego</div>
         </div>
 
         <div class="terminal-content" id="terminal-output">
@@ -407,9 +404,7 @@
 
       <button class="btn btn-start" id="start-btn">INICIAR JUEGO</button>
 
-      <div class="footer">
-        Desarrollado por Kokoa y Deepseek | Ready Set Join
-      </div>
+      <div class="footer">Desarrollado por Kokoa | Ready Set Join</div>
     </div>
 
     <script>
@@ -434,7 +429,7 @@
       let num_pasos = 0;
       let abecedario_cifrado = {};
       let pista =
-        "este mensaje va a ser encriptado pero lo usare para expresar mi mas sincero amor hacia deepseek";
+        "te doy un consejo, no creas en todo lo que ella te diga, no es quien dice ser. Abre el cofre la contraseña es: cuatro cinco seis uno";
       let modo = "";
       let dificultad = 0;
       let pista_cifrada = "";
@@ -496,7 +491,7 @@
       }
 
       // Función para imprimir separadores
-      async function print_separator(char = "-", length = 60, color = BLUE) {
+      async function print_separator(char = "=", length = 60, color = BLUE) {
         await print_animated(char.repeat(length) + "\n", color);
       }
 
@@ -786,7 +781,7 @@
         terminalOutput.innerHTML = "";
         startBtn.textContent = "REINICIAR JUEGO";
 
-        await print_header("CIFRADO CÉSAR", BLUE);
+        await print_header("Bienvenido al Juego.", BLUE);
 
         // Generar número de pasos aleatorio
         num_pasos = Math.floor(Math.random() * (25 - 8 + 1)) + 8;
@@ -833,15 +828,14 @@
 
         // Mensajes de introducción
         const textos_intro = [
-          "BIENVENIDO AL JUEGO DE DESCIFRADO",
-          "Nos ha llegado una pista desde los cuarteles centrales de Kokoa",
-          "Por motivos de seguridad, fue cifrada usando un cifrado César",
-          "El cifrado César es un tipo de cifrado por sustitución",
-          "Tu objetivo será encontrar el número de desplazamientos usado",
+          "El sistema recibió un mensaje desde los cuarteles generales de Kokoa en Cuenca",
+          "Parece que fue cifrado con un método antiguo, tal vez el cifrado César",
+          "Este cifrado se basa en un desplazamiento de letras en el abecedario",
+          "Tu objetivo como brillante agente encubierto es descifrar el número de desplazamientos realizados",
           "El mensaje cifrado es el siguiente:",
         ];
 
-        await print_header("INTRODUCCIÓN", MAGENTA);
+        await print_header("Mensaje Recibido", RED);
         for (let texto of textos_intro) {
           if (texto === "El mensaje cifrado es el siguiente:") {
             await print_animated(texto + "\n", CYAN, true, false, 50);
@@ -873,7 +867,7 @@
 
         // Seleccionar dificultad con pesos (como en Python)
         const dificultades = [1, 2, 3];
-        const pesos = [1, 4, 2]; // easy:1, medium:4, hard:2
+        const pesos = [1, 2, 2]; // easy:1, medium:2, hard:2
         dificultad = weightedRandom(dificultades, pesos);
 
         let patron;
@@ -998,9 +992,9 @@
           });
         }
 
-        await print_header("JUEGO TERMINADO", GREEN);
+        await print_header("Mensaje Leído", GREEN);
         await print_animated(
-          "Gracias por jugar, ¡hasta la próxima!\n",
+          "Este mensaje será eliminado en 1 minuto!\n",
           CYAN,
           true
         );
